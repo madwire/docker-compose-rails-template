@@ -1,5 +1,6 @@
 db:
-  image: dockerfile/mongodb
+  image: mongo
+  command: mongod --smallfiles
   ports:
     - "27017"
     - "28017"
