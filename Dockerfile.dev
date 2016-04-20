@@ -2,9 +2,13 @@ FROM ruby:2.3
 ENV BUNDLE_PATH /bundler
 
 RUN apt-get update -qq && apt-get install -y build-essential
+
 RUN mkdir /workspace
 WORKDIR /workspace
+
 ADD Gemfile /workspace/Gemfile
 ADD Gemfile.lock /workspace/Gemfile
+ADD script /workspace/script
+
 RUN bundle install --jobs 4
 ADD . /workspace
