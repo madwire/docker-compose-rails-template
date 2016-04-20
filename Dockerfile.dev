@@ -3,5 +3,6 @@ RUN apt-get update -qq && apt-get install -y build-essential
 RUN mkdir /workspace
 WORKDIR /workspace
 ADD Gemfile /workspace/Gemfile
+ADD Gemfile.lock /workspace/Gemfile
 RUN bundle install --jobs 4
 ADD . /workspace
