@@ -19,4 +19,4 @@ Uncomment the line in your new Gemfile which loads therubyracer, so we've got a 
 
 `gem 'therubyracer', platforms: :ruby`
 
-Now add any other gem you think you need. then run `docker-compose build` (anytime you change the gemfile)
+Now add any other gem you think you need. then run `docker-compose up` (and new gems will automatically be installed)
