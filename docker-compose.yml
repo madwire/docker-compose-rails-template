@@ -4,7 +4,7 @@ db:
   ports:
     - "27017"
     - "28017"
-web:
+app:
   build: .
   dockerfile: Dockerfile.dev
   command: ./script/start
