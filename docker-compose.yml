@@ -1,22 +1,22 @@
-db:
-  image: mongo
-  command: mongod --smallfiles
-  ports:
-    - "27017"
-    - "28017"
-app:
-  build: .
-  dockerfile: Dockerfile.dev
-  command: ./script/start
-  volumes:
-    - .:/workspace
-  volumes_from:
-    - bundler
-  ports:
-    - "3000:3000"
-  links:
-    - db
-bundler:
-  image: busybox
-  volumes:
-    - /bundler
+version: '2'
+services:
+  db:
+    image: mongo
+    command: mongod --smallfiles
+    ports:
+      - "27017"
+      - "28017"
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: ./script/start
+    volumes:
+      - .:/workspace
+      - bundler:/bundler
+    ports:
+      - "3000:3000"
+    links:
+      - db
+volumes:
+  bundler: {}

@@ -1,5 +1,7 @@
 # Docker Compose - Rails new template
 
+##### Requires Docker Compose v1.6+ for [older supported versions look at this branch](https://github.com/madwire/docker-compose-rails-template/tree/docker-compose-yml-version-1)
+
 Simple change my_app_name to well your app name!
 
 ```
