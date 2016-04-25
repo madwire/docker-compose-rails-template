@@ -7,7 +7,7 @@ RUN mkdir /workspace
 WORKDIR /workspace
 
 ADD Gemfile /workspace/Gemfile
-ADD Gemfile.lock /workspace/Gemfile
+ADD Gemfile.lock /workspace/Gemfile.lock
 ADD script /workspace/script
 
 RUN bundle install --jobs 4
