@@ -5,7 +5,7 @@ Simple change my_app_name to well your app name!
 ```
 mkdir my_app_name && cd my_app_name
 git clone https://github.com/madwire/docker-compose-rails-template . && rm -rf .git && rm README.md
-docker-compose run --no-deps --rm app ./script/new && rm script/new
+docker-compose run --no-deps --rm app script/new && rm script/new
 ```
 
 ### Change the app name in:
