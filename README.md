@@ -42,7 +42,7 @@ config.web_console.whitelisted_ips = first_private_ipv4.sub(/\.(\d{1,3})$/, ".0/
 
 The MIT License (MIT)
 
-Copyright (c) 2016 Richard Adams
+Copyright (c) 2017 Richard Adams
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
