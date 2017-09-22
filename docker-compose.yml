@@ -1,4 +1,4 @@
-version: '2'
+version: '3.0'
 services:
   db:
     image: mongo
@@ -18,5 +18,16 @@ services:
       - "3000:3000"
     links:
       - db
+      - webpacker
+  webpacker:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: ./bin/webpack-dev-server --host localhost
+    volumes:
+      - .:/workspace
+      - bundler:/bundler
+    ports:
+      - "3035:3035"
 volumes:
   bundler: {}

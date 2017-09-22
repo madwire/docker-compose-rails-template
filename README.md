@@ -1,7 +1,5 @@
 # Docker Compose - Rails new template
 
-##### Requires Docker Compose v1.6+ for [older supported versions look at this branch](https://github.com/madwire/docker-compose-rails-template/tree/docker-compose-yml-version-1)
-
 Simple change my_app_name to well your app name!
 
 ```
@@ -17,9 +15,15 @@ docker-compose run --no-deps --rm app script/new && rm script/new
 
 ### Then
 
-Uncomment the line in your new Gemfile which loads therubyracer, so we've got a Javascript runtime:
+Go to config/webpacker.yml and change localhost to webpacker to avoid any errors when running in development.
 
-`gem 'therubyracer', platforms: :ruby`
+```
+dev_server:
+  host: webpacker
+  port: 3035
+  hmr: false
+  https: false
+```
 
 Now add any other gem you think you need. then run `docker-compose up` (and new gems will automatically be installed)
 
