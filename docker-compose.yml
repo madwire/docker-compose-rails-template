@@ -1,4 +1,4 @@
-version: '3.0'
+version: '2'
 services:
   db:
     image: mongo
@@ -23,7 +23,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    command: ./bin/webpack-dev-server --host localhost
+    command: ./script/webpacker
     volumes:
       - .:/workspace
       - bundler:/bundler
