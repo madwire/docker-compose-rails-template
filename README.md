@@ -15,17 +15,7 @@ docker-compose run --no-deps --rm app script/new && rm script/new
 
 ### Then
 
-Go to config/webpacker.yml and change localhost to webpacker to avoid any errors when running in development.
-
-```
-dev_server:
-  host: webpacker
-  port: 3035
-  hmr: false
-  https: false
-```
-
-Now add any other gem you think you need. then run `docker-compose up` (and new gems will automatically be installed)
+Add any other gem you think you need. then run `docker-compose up` (and new gems will automatically be installed)
 
 ### Also
 
