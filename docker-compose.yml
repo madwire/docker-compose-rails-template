@@ -1,11 +1,8 @@
-version: '2'
+version: '3'
 services:
   db:
-    image: mongo
-    command: mongod --smallfiles
-    ports:
-      - "27017"
-      - "28017"
+    image: mongo:3.6
+    command: mongod --smallfiles --bind_ip_all
   app:
     build:
       context: .
@@ -13,10 +10,10 @@ services:
     command: ./script/start
     volumes:
       - .:/workspace
-      - bundler:/bundler
+      - bundler:/usr/local/bundle
     ports:
       - "3000:3000"
-    links:
+    depends_on:
       - db
       - webpacker
   webpacker:
@@ -26,7 +23,7 @@ services:
     command: ./script/webpacker
     volumes:
       - .:/workspace
-      - bundler:/bundler
+      - bundler:/usr/local/bundle
     ports:
       - "3035:3035"
 volumes:
