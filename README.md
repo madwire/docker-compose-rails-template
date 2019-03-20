@@ -11,7 +11,6 @@ docker-compose run --no-deps --rm app script/new && rm script/new
 ### Change the app name in:
 
 - config/application.rb
-- config/initializers/session_store.rb (optional)
 
 ### Then
 
@@ -21,22 +20,20 @@ Add any other gem you think you need. then run `docker-compose up` (and new gems
 
 #### Whitelist your IP for the web console
 
-To avoid warnings about blocked ip's in your server log and get the Rails web console working again, In your config/environments/development.rb, add the following line:
+To avoid warnings about blocked ip's in your server log and get the Rails web console working again, In your config/environments/development.rb, add the following config option:
 
 ```
-def first_private_ipv4
-  addrinfo = Socket.ip_address_list.detect{|intf| intf.ipv4_private?}
-  addrinfo.try :ip_address
+config.web_console.whitelisted_ips = begin
+  addrinfo = Socket.ip_address_list.detect(&:ipv4_private?)
+  addrinfo.try(:ip_address).sub(/\.(\d{1,3})$/, '.0/16')
 end
-
-config.web_console.whitelisted_ips = first_private_ipv4.sub(/\.(\d{1,3})$/, ".0/16")
 ```
 
 ## LICENSE
 
 The MIT License (MIT)
 
-Copyright (c) 2017 Richard Adams
+Copyright (c) 2019 Richard Adams
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

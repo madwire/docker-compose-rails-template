@@ -1,4 +1,4 @@
-FROM ruby:2.5
+FROM ruby:2.6
 ENV BUNDLE_PATH /usr/local/bundle
 ENV WEBPACKER_DEV_SERVER_HOST webpacker
 
