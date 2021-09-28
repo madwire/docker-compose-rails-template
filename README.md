@@ -5,6 +5,11 @@ Simple change my_app_name to well your app name!
 ```
 mkdir my_app_name && cd my_app_name
 git clone https://github.com/madwire/docker-compose-rails-template . && rm -rf .git && rm README.md
+```
+
+Now change the docker image name in the docker-compose.yml
+
+```
 docker-compose run --no-deps --rm app script/new && rm script/new
 ```
 
@@ -33,7 +38,7 @@ end
 
 The MIT License (MIT)
 
-Copyright (c) 2019 Richard Adams
+Copyright (c) 2021 Richard Adams
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
